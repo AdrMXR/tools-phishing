@@ -4,10 +4,10 @@ Tools-phishing es un script en Python todo en uno que contiene las herramientas 
 
 ### Compatibilidad 
 
-_Esta herramienta solo es compatible con Linux y python2.
+Esta herramienta solo es compatible con Linux y python2.
 
 
-### Instalación 🔧
+### Instalación 
 
 ```
 git clone https://github.com/AdrMXR/tools-phishing.git
@@ -19,4 +19,8 @@ cd tools-phishing
 python tools-phishing.py 
 ```
 
+### Screenshots
+
+![alt img](screenshot1.png)
+![alt img](screenshot2.png)
 
