@@ -24,6 +24,16 @@ python tools-phishing.py
 ![alt img](screenshot1.png)
 ![alt img](screenshot2.png)
 
+### Kit de herramientas
+* HiddenEye
+* SocialPhish
+* SocialFish
+* Phisher-man
+* Shellphish
+* Wifiphisher
+* Modlishka
+
+
 ### Creditos
 Creador de la herramienta: Adrian Guillermo
 
