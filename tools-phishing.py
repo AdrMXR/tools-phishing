@@ -16,8 +16,6 @@ BLUE, RED, WHITE, CYAN, DEFAULT, YELLOW, MAGENTA, GREEN, END = '\33[94m', '\033[
 def HiddenEye():
   directory = raw_input("Ingrese la ruta donde desea guardar la herramienta (Ej: /root/Desktop):\n--> ")
   os.system('cd {} && mkdir HiddenEye && git clone https://github.com/DarkSecDevelopers/HiddenEye.git'.format(directory))
-  print("Solucionando error de dependencias incumplidas") #Error directo del repositorio oficial de HiddenEye en GitHub
-  os.system('sudo apt-get autoremove && sudo apt-get autoclean && sudo apt-get update && sudo apt-get -f install')
   print("Instalando requerimientos...")
   os.system('cd {} && chmod 777 HiddenEye && sudo apt install python3-pip && cd HiddenEye/ && sudo pip3 install -r requirements.txt'.format(directory))
   if raw_input("¿Desea ejecutar la herramienta? (y/n)\n--> ").upper() != "Y":
@@ -43,8 +41,6 @@ def SocialPhish():
 def SocialFish():
   directory = raw_input("Ingrese la ruta donde desea guardar la herramienta (Ej: /root/Desktop): \n--> ")
   os.system('cd {} && mkdir SocialFish && git clone https://github.com/UndeadSec/SocialFish.git'.format(directory))
-  print("Solucionando error de dependencias incumplidas...") #Error directo del repositorio oficial de SocialFish en GitHub  
-  os.system('sudo apt-get autoremove && sudo apt-get autoclean && sudo apt-get update && sudo apt-get -f install')
   print("Instalando requerimientos...")
   os.system('sudo apt-get install python3 python3-pip python3-dev -y && cd {} && cd SocialFish && python3 -m pip install -r requirements.txt '.format(directory))
   if raw_input("¿Desea ejecutar la herramienta? (y/n)\n--> ").upper() != "Y":
