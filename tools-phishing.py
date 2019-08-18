@@ -3,11 +3,10 @@
 #Copyright 2019 tools_phishing
 #Written by: Adrian Guillermo
 #Facebook: Adrian Guillero
-#Github: 
+#Github: https://www.github.com/AdrMXR
 
 from time import sleep
 from sys import stdout, argv, exit
-import pyfiglet
 import os
 import time 
 import string
@@ -17,38 +16,87 @@ BLUE, RED, WHITE, CYAN, DEFAULT, YELLOW, MAGENTA, GREEN, END = '\33[94m', '\033[
 def HiddenEye():
   directory = raw_input("Ingrese la ruta donde desea guardar la herramienta (Ej: /root/Desktop):\n--> ")
   os.system('cd {} && mkdir HiddenEye && git clone https://github.com/DarkSecDevelopers/HiddenEye.git'.format(directory))
-  exit(0) 
-
+  print("Solucionando error de dependencias incumplidas") #Error directo del repositorio oficial de HiddenEye en GitHub
+  os.system('sudo apt-get autoremove && sudo apt-get autoclean && sudo apt-get update && sudo apt-get -f install')
+  print("Instalando requerimientos...")
+  os.system('cd {} && chmod 777 HiddenEye && sudo apt install python3-pip && cd HiddenEye/ && sudo pip3 install -r requirements.txt'.format(directory))
+  if raw_input("¿Desea ejecutar la herramienta? (y/n)\n--> ").upper() != "Y":
+    print("GRACIAS POR UTILIZAR TOOLS-PHISHING").format(END) 
+    exit(0)
+  print("Ejecutando herramienta...")
+  os.system('cd {} && cd HiddenEye/ && python3 HiddenEye.py'.format(directory))
+  os.system('cd {} && cd HiddenEye/ && python3 HiddenEye.py'.format(directory)) # Segunda Ejecucion de HiddenEye para evitar el problema de conexiòn de internet.
+  exit(0)
+  
 def SocialPhish():
   directory = raw_input("Ingrese la ruta donde desea guardar la herramienta (Ej: /root/Desktop): \n--> ")
   os.system('cd {} && mkdir SocialPhish && git clone https://github.com/xHak9x/SocialPhish.git'.format(directory))
+  print("Ingresando permisos...")
+  os.system('cd {} && cd SocialPhish && chmod +x socialphish.sh'.format(directory))
+  if raw_input("¿Desea ejecutar la herramienta? (y/n)\n--> ").upper() != "Y":
+    print("GRACIAS POR UTILIZAR TOOLS-PHISHING").format(END)
+    exit(0)
+  print("Ejecutando herramienta...")
+  os.system('clear && cd {} && cd SocialPhish && ./socialphish.sh'.format(directory))
   exit(0)
 
 def SocialFish():
   directory = raw_input("Ingrese la ruta donde desea guardar la herramienta (Ej: /root/Desktop): \n--> ")
   os.system('cd {} && mkdir SocialFish && git clone https://github.com/UndeadSec/SocialFish.git'.format(directory))
+  print("Solucionando error de dependencias incumplidas...") #Error directo del repositorio oficial de SocialFish en GitHub  
+  os.system('sudo apt-get autoremove && sudo apt-get autoclean && sudo apt-get update && sudo apt-get -f install')
+  print("Instalando requerimientos...")
+  os.system('sudo apt-get install python3 python3-pip python3-dev -y && cd {} && cd SocialFish && python3 -m pip install -r requirements.txt '.format(directory))
+  if raw_input("¿Desea ejecutar la herramienta? (y/n)\n--> ").upper() != "Y":
+    print("GRACIAS POR UTILIZAR TOOLS-PHISHING").format(END)
+    exit(0)
+  print("Ejecutando herramienta...")
+  os.system('clear && cd {} && cd SocialFish && python3 SocialFish.py'.format(directory))
   exit(0)
 
 def PhisherMan():
   directory = raw_input("Ingrese la ruta donde desea guardar la herramienta (Ej: /root/Desktop): \n--> ")
   os.system('cd {} && mkdir Phisher-man && git clone https://github.com/FDX100/Phisher-man.git'.format(directory))
+  if raw_input("¿Desea ejecutar la herramienta? (y/n)\n--> ").upper() != "Y":
+    print("GRACIAS POR UTILIZAR TOOLS-PHISHING").format(END)
+    exit(0)
+  print("Ejecutando herramienta...")
+  os.system('cd {} && cd Phisher-man && python phisherman.py'.format(directory))
   exit(0)
 
 def Shellphish():
   directory = raw_input("Ingrese la ruta donde desea guardar la herramienta (Ej: /root/Desktop): \n--> ")
   os.system('cd {} && git clone https://github.com/thelinuxchoice/shellphish.git'.format(directory))
+  if raw_input("¿Desea ejecutar la herramienta? (y/n)\n--> ").upper() != "Y":
+    print("GRACIAS POR UTILIZAR TOOLS-PHISHING").format(END)
+    exit(0)
+  print("Ejecutando herramienta...")
+  os.system('clear && cd {} && cd shellphish && bash shellphish.sh'.format(directory))
   exit(0)
 
 def Wifiphisher():
   directory = raw_input("Ingrese la ruta donde desea guardar la herramienta (Ej: /root/Desktop): \n--> ")
   os.system('cd {} && git clone https://github.com/wifiphisher/wifiphisher.git'.format(directory))
-  exit(0)
+  print("Instalando requerimientos...")
+  os.system('cd {} && cd wifiphisher && sudo python setup.py install'.format(directory))
+  if raw_input("¿Desea ejecutar la herramienta? (y/n)\n--> ").upper() != "Y":
+    print("GRACIAS POR UTILIZAR TOOLS-PHISHING").format(END)
+    exit(0)
+  print("Ejecutando herramienta...")
+  os.system('wifiphisher')
 
 def Modlishka():
-  directory = raw_input("Ingrese la ruta donde desea guardar la herramienta (Ej: /root/Desktop): \n--> ")
-  os.system('cd {} && mkdir Modlishka && git clone https://github.com/drk1wi/Modlishka.git'.format(directory))
+  print("Esta herramienta se instalara por default en /usr/local para que funcione correctamente.")
+  if raw_input("¿Desea continuar? (y/n)\n--> ").upper() != "Y":
+    print("GRACIAS POR UTILIZAR TOOLS-PHISHING").format(END)
+  print("Instalando requerimientos...")
+  os.system('cd /usr/local && sudo curl -O https://storage.googleapis.com/golang/go1.9.linux-amd64.tar.gz && sudo tar -xzvf go1.9.linux-amd64.tar.gz && echo export PATH=$PATH:/usr/local/go/bin >> /etc/profile')
+  if raw_input("Se necesita reiniciar su equipo para efectuar los cambios ¿Desea continuar? (y/n)\n--> ").upper() != "Y":
+    print("GRACIAS POR UTILIZAR TOOLS-PHISHING").format(END)
+    exit(0)
+  print("Reiniciando equipo...")
+  os.system('sudo reboot')
   exit(0)
-
 
 def menu():
   opcion = input("\nEscoja la herramienta que desea instalar en su equipo: \n\n #1 --- HiddenEye \n\n #2 --- SocialPhish \n\n #3 --- SocialFish \n\n #4 --- Phisher-man \n\n #5 --- Shellphish \n\n #6 --- Wifiphisher \n\n #7 --- Modlishka \n\n--> " )
