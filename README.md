@@ -39,8 +39,6 @@ Creador de la herramienta: Adrian Guillermo
 
 Facebook: https://www.facebook.com/Adrian.Guillermo.22
 
-Instagram: https://www.instagram.com/adrian.guillermo22/
-
 YouTube: https://www.youtube.com/channel/UCqEtxJKbIghx6lyymrjfvnA?view_as=subscriber
 
 
